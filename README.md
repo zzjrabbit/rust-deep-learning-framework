@@ -42,6 +42,15 @@ You can even split them into multiple files, \
 and jump between the files with the support of LSP. \
 In addition, you can write documents right inside the code. 
 
+## Some Details( For those of you who want to try this )
+Because procedural macros can't get global information,
+generating the computation graph directly is impossible.
+So a better idea is to generate a generator which generates a raw graph.
+You can put it in build.rs, then optimize it and store it in some file,
+then in main.rs, users can use another procedural macro to read the graph from the file
+and generate a structure with some functions, like `train` and `forward`.
+
+
 ## Examples
 There are some examples to help you understand this idea. 
 
